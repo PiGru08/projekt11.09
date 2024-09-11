@@ -39,8 +39,25 @@ public class Main {
                 System.out.println(liczbaWpisana);
             }
             //wypisywanie innym sposobem
-        for (int i = 0; i <listaLiczbWpisanych.size() ; i++) {
+        for(int i = 0; i <listaLiczbWpisanych.size() ; i++) {
             System.out.println(listaLiczbWpisanych.get(i));
         }
+
+        //losowanie liczb bez powtórzeń
+
+        ArrayList<Integer> listaLosowychBezPowturzen = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            int liczba = (int)(Math.random()*100+1);
+            while (listaLosowychBezPowturzen.contains(liczba)) {
+                liczba = (int) (Math.random() * 100 + 1);
+            }
+                listaLosowychBezPowturzen.add(liczba);//dodawanie liczby do listy
+
+        }
+        //wypisywanie tablicy
+        System.out.println("Wylosowane liczby bez powtórzeń");
+        System.out.println(listaLosowychBezPowturzen);
+
+
     }
 }
