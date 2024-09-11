@@ -1,10 +1,7 @@
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
 
-
-    }
     //metody
 
     /**
@@ -12,7 +9,7 @@ public class Main {
      * @param ile - liczba całkowita przechowująca ile liczb wylosujemy
      * @return lista z wylosowanymi liczbami
      */
-    private ArrayList<Integer> wylosujLiczby(int ile){
+    private static ArrayList<Integer> wylosujLiczby(int ile){
         ArrayList<Integer>listaLosowychBezPowtorzen =new ArrayList<>();
         for (int i = 0; i < ile; i++) {
             int liczba = (int)(Math.random()*100+1);
@@ -24,7 +21,7 @@ public class Main {
         return listaLosowychBezPowtorzen;
     }
 
-    private ArrayList<Integer> wpiszLiczbyZKlawiatury(int ile){
+    private static ArrayList<Integer> wpiszLiczbyZKlawiatury(int ile){
         ArrayList<Integer> listaLiczbWpisanych = new ArrayList<>();
         System.out.println("podaj "+ile+" liczb");
         Scanner klawiatura = new Scanner(System.in);
@@ -34,12 +31,12 @@ public class Main {
         }
         return listaLiczbWpisanych;
     }
-    private void wypiszKolekcję(List<Integer> listaDoWypisania){
+    private static void wypiszKolekcję(List<Integer> listaDoWypisania){
         for (Integer element:listaDoWypisania) {
             System.out.println("Element:"+element);
         }
     }
-    private LinkedList<Integer> zwrocTrafione(ArrayList<Integer> listaLiczbWpisanych,
+    private static LinkedList<Integer> zwrocTrafione(ArrayList<Integer> listaLiczbWpisanych,
                                               ArrayList<Integer>listaLiczbLosowych){
         LinkedList<Integer> trafione =new LinkedList<>();
         //trafiione to elementy które występują w wylosowanych i wpisanych
@@ -49,6 +46,17 @@ public class Main {
             }
         }
         return trafione;
+    }
+    public static void main(String[] args) {
+        //losowanie liczby
+        ArrayList<Integer> losowe = wylosujLiczby(6);
+        System.out.println("Wylosowana liczba");
+        wypiszKolekcję(losowe);
+        ArrayList<Integer> wpisane = wpiszLiczbyZKlawiatury(6);
+        wypiszKolekcję(wpisane);
+        LinkedList<Integer> trafione = zwrocTrafione(losowe, wpisane);
+        wypiszKolekcję(trafione);
+
     }
 
 
